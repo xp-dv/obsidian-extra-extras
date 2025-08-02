@@ -1,0 +1,238 @@
+/*---------------------------------------------------------------------------
+
+Extra Extras by @xp-dv
+
+This CSS snippet for Obsidian brings additional customization options to any
+theme to improve content perception and add personal flair. This snippet is
+currently a WIP, but new features will continue to be added as I build and
+customize my Obsidian vault.
+
+This snippet requires the Obsidian Style Settings Plugin by @mgmeyers.
+This community plugin gives users a dynamic graphical user interface for
+customizing every feature in this snippet, and is also necessary for default
+functionality. Community plugins are downloaded, installed, and enabled
+within the Obsidian application through the Settings → Community plugins tab.
+
+-----------------------------------------------------------------------------
+
+MIT License
+
+Copyright (c) 2025 Xavior Pautin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+*/
+
+/*----------------------------------*/
+/* HORIZONTAL RULES                 */
+/*----------------------------------*/
+
+.extras-hr-gradient-icon .cm-line hr,
+.extras-hr-gradient-icon .markdown-preview-view hr {
+  height: var(--extras-hr-thickness);
+  background-image: linear-gradient(to right, transparent, var(--extras-hr-color) calc(50% - var(--extras-hr-icon-padding) * var(--extras-hr-icon-size)), transparent calc(50% - var(--extras-hr-icon-padding) * var(--extras-hr-icon-size)), transparent calc(50% + var(--extras-hr-icon-padding) * var(--extras-hr-icon-size)), var(--extras-hr-color) calc(50% + var(--extras-hr-icon-padding) * var(--extras-hr-icon-size)), transparent);
+  border: none;
+  position: relative;
+  overflow: visible;
+  margin-top: calc(var(--extras-hr-icon-size) / 2 + 0.5em);
+  margin-bottom: calc(var(--extras-hr-icon-size) / 2 + 0.5em);
+}
+.extras-hr-gradient-icon .cm-line hr::after,
+.extras-hr-gradient-icon .markdown-preview-view hr::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-image: var(--extras-hr-image);
+  background-color: var(--extras-hr-color);
+  left: 50%;
+  transform: translate(-50%, calc(-50% + var(--extras-hr-thickness) / 2));
+  width: var(--extras-hr-icon-size);
+  height: var(--extras-hr-icon-size);
+}
+
+.extras-hr-gradient .cm-line hr,
+.extras-hr-gradient .markdown-preview-view hr {
+  height: var(--extras-hr-thickness);
+  background-image: linear-gradient(to right, transparent, var(--extras-hr-color) calc(50% - var(--extras-hr-icon-padding) * var(--extras-hr-icon-size)), var(--extras-hr-color) calc(50% + var(--extras-hr-icon-padding) * var(--extras-hr-icon-size)), transparent);
+  border: none;
+}
+
+.extras-hr-solid .cm-line hr,
+.extras-hr-solid .markdown-preview-view hr {
+  height: var(--extras-hr-thickness);
+  background-color: var(--extras-hr-color);
+  border: none;
+}
+
+body {
+  --extras-hr-color: var(--text-accent);
+  --extras-hr-thickness: 1px;
+  --extras-hr-icon-size: 1.5em;
+  --extras-hr-icon-padding: 0.75;
+  --extras-hr-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" %3E%3Cpath d="M172.7 461.6c73.6-149.1 2.1-217-43.7-246.9m72 96.7c71.6-17.3 141-16.3 189.8 88.5m-114-96.3c-69.6-174 44.6-181 16.3-273.6m97.7 370c1.6-3 3.3-5.8 5.1-8.6 20-29.9 34.2-53.2 41.4-65.3a16 16 0 0 0-1.2-17.7 342.1 342.1 0 0 1-40.2-66.1c-10.9-26-12.5-66.5-12.6-86.2 0-7.4-2.4-14.7-7-20.6l-81.8-104a32 32 0 0 0-1.4-1.5m97.7 370a172.8 172.8 0 0 0-18 59c-2.9 21.5-24 38.4-45 32.6-30-8.3-64.5-21.1-95.7-23.5l-47.8-3.6c-7.7-.6-15-4-20.3-9.5l-82.3-84.8c-9-9.2-11.4-23-6.2-34.8l52.8-117.7.7-3M293.1 30a31.5 31.5 0 0 0-44.4-2.3l-97.4 87.5c-5.4 5-9 11.5-10 18.8L129 214.7"/%3E%3C/svg%3E');
+}
+
+/*----------------------------------*/
+/* HEADINGS                         */
+/*----------------------------------*/
+
+body.extras-reverse-colorful-headings {
+  background-color: white;
+  --h1-color: var(--color-purple);
+  --h2-color: var(--color-blue);
+  --h3-color: var(--color-green);
+  --h4-color: var(--color-yellow);
+  --h5-color: var(--color-orange);
+  --h6-color: var(--color-red);
+}
+
+/*----------------------------------*/
+/* CHECKBOXES                       */
+/*----------------------------------*/
+
+body:not(.extras-checkbox-strikethrough) li[data-task = 'x'] { /* Only remove strikethrough for items marked with [x] */
+  --checklist-done-decoration: none;
+}  
+
+/*----------------------------------*/
+/* STYLE SETTINGS                   */
+/*----------------------------------*/
+
+/*@settings
+name: Extra Extras
+id: extra-extras
+settings:
+######################################
+# HORIZONTAL RULES
+######################################
+  -
+    id: extras-hr
+    title: Horizontal Rules
+    type: heading
+    description: Also called dividers, horizontal rules visually separate content on a page.
+    level: 1
+    collapsed: true
+  -
+    id: extras-hr-style
+    title: Style
+    type: class-select
+    allowEmpty: false
+    default: extras-hr-gradient-icon
+    options:
+      -
+        label: Gradient + Icon
+        value: extras-hr-gradient-icon
+      -
+        label: Gradient
+        value: extras-hr-gradient
+      -
+        label: Solid
+        value: extras-hr-solid
+  -
+    id: extras-hr-thickness
+    title: Thickness
+    type: variable-number-slider
+    format: px
+    default: 1
+    min: 0
+    max: 20
+    step: 1
+  -
+    id: extras-hr-icon-size
+    title: Icon Size
+    description: The desired width/height (em) of the icon.
+    type: variable-number
+    format: em
+    default: 1.5625
+  -
+    id: extras-hr-icon-padding
+    title: Icon Padding
+    description: This number is multiplied by the icon size to set the left/right padding around the icon.
+    type: variable-number-slider
+    default: 0.75
+    min: 0.05
+    max: 2
+    step: 0.05
+  -
+    id: extras-hr-image
+    title: Icon Image
+    description: The data url containing the encoded monochrome svg icon. New icons can be added to this setting in this snippet's Style Settings code.
+    type: variable-select
+    default: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" %3E%3Cpath d="M172.7 461.6c73.6-149.1 2.1-217-43.7-246.9m72 96.7c71.6-17.3 141-16.3 189.8 88.5m-114-96.3c-69.6-174 44.6-181 16.3-273.6m97.7 370c1.6-3 3.3-5.8 5.1-8.6 20-29.9 34.2-53.2 41.4-65.3a16 16 0 0 0-1.2-17.7 342.1 342.1 0 0 1-40.2-66.1c-10.9-26-12.5-66.5-12.6-86.2 0-7.4-2.4-14.7-7-20.6l-81.8-104a32 32 0 0 0-1.4-1.5m97.7 370a172.8 172.8 0 0 0-18 59c-2.9 21.5-24 38.4-45 32.6-30-8.3-64.5-21.1-95.7-23.5l-47.8-3.6c-7.7-.6-15-4-20.3-9.5l-82.3-84.8c-9-9.2-11.4-23-6.2-34.8l52.8-117.7.7-3M293.1 30a31.5 31.5 0 0 0-44.4-2.3l-97.4 87.5c-5.4 5-9 11.5-10 18.8L129 214.7"/%3E%3C/svg%3E')
+    options:
+      -
+        label: Obsidian
+        value: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" %3E%3Cpath d="M172.7 461.6c73.6-149.1 2.1-217-43.7-246.9m72 96.7c71.6-17.3 141-16.3 189.8 88.5m-114-96.3c-69.6-174 44.6-181 16.3-273.6m97.7 370c1.6-3 3.3-5.8 5.1-8.6 20-29.9 34.2-53.2 41.4-65.3a16 16 0 0 0-1.2-17.7 342.1 342.1 0 0 1-40.2-66.1c-10.9-26-12.5-66.5-12.6-86.2 0-7.4-2.4-14.7-7-20.6l-81.8-104a32 32 0 0 0-1.4-1.5m97.7 370a172.8 172.8 0 0 0-18 59c-2.9 21.5-24 38.4-45 32.6-30-8.3-64.5-21.1-95.7-23.5l-47.8-3.6c-7.7-.6-15-4-20.3-9.5l-82.3-84.8c-9-9.2-11.4-23-6.2-34.8l52.8-117.7.7-3M293.1 30a31.5 31.5 0 0 0-44.4-2.3l-97.4 87.5c-5.4 5-9 11.5-10 18.8L129 214.7"/%3E%3C/svg%3E')
+      -
+        label: Microchip
+        value: url('data:image/svg+xml,%3Csvg width="500" height="500" viewBox="0 0 500 500" id="svg1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"%3E%3Cg id="icon" transform="translate(-141,-166)"%3E%3Cpath id="ic" style="fill:none;stroke:%238a8d8f;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" d="m 361,576 M 181,536 h 90 m -90,-80 h 90 m -90,-80 h 90 m -90,-80 h 90 m 240,0 h 90 m -90,80 h 90 m -90,80 h 90 m -90,80 h 90 M 271,256 H 511 V 576 H 271 Z"/%3E%3C/g%3E%3C/svg%3E')
+  -
+    id: extras-hr-color
+    title: Color
+    type: variable-themed-color
+    format: hex
+    opacity: true
+    default-light: '#'
+    default-dark: '#'
+
+######################################
+# HEADINGS
+######################################
+  -
+    id: extras-headings
+    title: Headings
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: extras-reverse-colorful-headings
+    title: Reverse Colorful Headings Direction (Purple H1 to Red H6)
+    description: If your theme does not use standard color labels, you may want to turn this off and reverse the colors manually.
+    type: class-toggle
+
+######################################
+# CHECKBOXES
+######################################
+  -
+    id: extras-checkboxes
+    title: Checkboxes
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: extras-checkbox-strikethrough
+    title: Strikethrough
+    description: Cross out checked checkbox items.
+    type: class-toggle
+    default: true
+
+######################################
+# ABOUT
+######################################
+  -
+    id: extras-about
+    title: About
+    description: Custom snippet by @xp-dv for improved differentiation of content and personal flair.
+    type: heading
+    level: 1
+    collapsed: true
+*/
