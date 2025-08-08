@@ -1,0 +1,10 @@
+# Ignore all
+*
+# Whitelist self
+!.gitignore
+# Whitelist all folders
+!*/
+# Whitelist relevant files
+!extra-extras.css
+!README.md
+!LICENSE
