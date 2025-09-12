@@ -35,8 +35,10 @@ Also called *dividers*, horizontal rules visually separate content on a page.
 
 ### Feature List:
 - [x] Reverse Colorful Headings Direction
+- [ ] Evenly Spaced Headers
+- [ ] Small Caps
 - [ ] Heading Dividers
-  - [ ] Individual Enable/Disable Toggles for H1-H6
+  - [ ] Individual Toggles Per Heading Level
   - [ ] Style (*Match Horizontal Rules* or *Custom*)
   - [ ] Thickness
   - [ ] Icon Size
