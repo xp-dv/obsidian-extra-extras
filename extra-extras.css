@@ -114,6 +114,36 @@ body:not(.extras-checkbox-strikethrough) li[data-task = 'x'] { /* Only remove st
 }  
 
 /*----------------------------------*/
+/* EMBEDS                           */
+/*----------------------------------*/
+
+.extras-embed-no-title :is(.internal-embed[alt*="embed-no-title"], .internal-embed[alt*="embed-clean-no-title"]) .markdown-embed-content :is(.el-h1, .el-h2, .el-h3, .el-h4, .el-h5, .el-h6) {
+  display: none; /* Hide all embedded headers */
+}
+.extras-embed-no-title :is(.internal-embed[alt*="embed-no-title"], .internal-embed[alt*="embed-clean-no-title"]) .markdown-embed-content :is(.el-h1, .el-h2, .el-h3, .el-h4, .el-h5, .el-h6) ~ :is(.el-h1, .el-h2, .el-h3, .el-h4, .el-h5, .el-h6) {
+  display: block; /* Bring back all headers except the first one */
+}
+.extras-embed-no-title :is(.internal-embed[alt*="embed-no-title"], .internal-embed[alt*="embed-clean-no-title"]) .markdown-embed-content :is(.el-h1, .el-h2, .el-h3, .el-h4, .el-h5, .el-h6) + * > :first-child {
+  margin-top: 0; /* Remove the top margin of the next element after the first header */
+}
+
+.extras-embed-clean :is(.internal-embed[alt*="embed-clean"], .internal-embed[alt*="embed-clean-no-title"]) {
+  --embed-padding: 0 0 0 0;
+  --nested-padding: 0; /* Necessary for certain themes */
+  --embed-border-top: none;
+  --embed-border-end: none;
+  --embed-border-bottom: none;
+  --embed-border-start: none;
+}
+.extras-embed-clean :is(.internal-embed[alt*="embed-clean"], .internal-embed[alt*="embed-clean-no-title"]) .markdown-embed-title {
+  display: none;
+}
+
+.extras-embed-no-filename .internal-embed .markdown-embed-title {
+  display: none;
+}
+
+/*----------------------------------*/
 /* STYLE SETTINGS                   */
 /*----------------------------------*/
 
@@ -222,6 +252,34 @@ settings:
     id: extras-checkbox-strikethrough
     title: Strikethrough
     description: Cross out checked checkbox items.
+    type: class-toggle
+    default: true
+
+######################################
+# EMBEDS
+######################################
+  -
+    id: extras-embeds
+    title: Embeds
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: extras-embed-no-title
+    title: Remove First Header
+    description: Give any embedded note alt text in the format ![[<your-note>|embed-no-title]] to remove its first header. Use to embed whole sections of a note without the section title.
+    type: class-toggle
+    default: true
+  -
+    id: extras-embed-clean
+    title: Clean Embeds
+    description: Give any embedded note alt text in the format ![[<your-note>|embed-clean]] or ![[<your note>|embed-clean-no-title]] to make it flush and borderless for a clean, in-line look.
+    type: class-toggle
+    default: true
+  -
+    id: extras-embed-no-filename
+    title: Remove Filenames
+    description: Remove the filename displayed above embedded notes.
     type: class-toggle
     default: true
 

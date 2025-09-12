@@ -48,3 +48,10 @@ Also called *dividers*, horizontal rules visually separate content on a page.
 
 ### Feature List:
 - [x] Strikethrough
+
+## Embeds
+
+### Feature List:
+- [x] Remove First Header
+- [x] Clean Embeds
+- [x] Remove Filenames
