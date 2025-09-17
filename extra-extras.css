@@ -140,6 +140,9 @@ body:not(.extras-checkbox-strikethrough) li[data-task = 'x'] { /* Only remove st
   --embed-border-bottom: none;
   --embed-border-start: none;
 }
+.extras-embed-clean :is(.internal-embed[alt*="embed-clean"], .internal-embed[alt*="embed-clean-no-title"]) .markdown-embed-content .markdown-preview-view{
+  scrollbar-gutter: auto;
+}
 .extras-embed-clean :is(.internal-embed[alt*="embed-clean"], .internal-embed[alt*="embed-clean-no-title"]) .markdown-embed-title {
   display: none;
 }
